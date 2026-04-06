@@ -1,3 +1,10 @@
+import numpy as np
 
-def mse(y_true, y_pred):
-    return ((y_true - y_pred)**2).mean()
+def mae(y_true, y_pred):
+    return np.mean(np.abs(y_true - y_pred))
+
+def rmse(y_true, y_pred):
+    return np.sqrt(np.mean((y_true - y_pred) ** 2))
+
+def mape(y_true, y_pred, eps=1e-8):
+    return np.mean(np.abs((y_true - y_pred) / (y_true + eps))) * 100
